@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="VegaSera_lambdata",
-    version="0.0.1",
+    version="0.0.2",
     author="Wesley Mountford",
     author_email="goe_horus@hotmail.com",
     description="Educationamalism",
