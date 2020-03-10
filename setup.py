@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setup(
-    name="VegaSeralambdata",
+    name="VegaSera_lambdata",
     version="0.0.3",
     author="Wesley Mountford",
     author_email="goe_horus@hotmail.com",
