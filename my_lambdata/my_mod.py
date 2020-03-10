@@ -57,7 +57,6 @@ def datetime_split(df, remove_old = False):
     
     if len(collist) == 0: #If the list is empty, then there were no columns using datetime objects.
         print('No columns of datetime format found. Try using pd.to_datetime(column) on your date columns.')
-        break
     else:
         for col in collist:
             #Every datetime column in the dateframe gets split into its component parts, but only if it contains more than one unique value.
