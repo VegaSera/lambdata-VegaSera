@@ -2,9 +2,10 @@
 # my_lambdata/my_mod.py
 
 from sklearn.model_selection import train_test_split
+import pandas as pd
 
 #Train, Validate, Test split
-def TVT_split(df, split=0.1):
+def tvt_split(df, split=0.1):
     """
     Takes a Pandas DataFrame
     Returns three DataFrames with equal sized validate and test.
@@ -59,7 +60,8 @@ def datetime_split(df, remove_old = False):
         print('No columns of datetime format found. Try using pd.to_datetime(column) on your date columns.')
     else:
         for col in collist:
-            #Every datetime column in the dateframe gets split into its component parts, but only if it contains more than one unique value.
+            #Every datetime column in the dataframe gets split into its component parts, but only if it contains more
+            # than one unique value.
             if len(df[col].dt.year.unique()) > 1:
                 df[f'{col}.year'] = df[col].dt.year
             if len(df[col].dt.month.unique()) > 1:
