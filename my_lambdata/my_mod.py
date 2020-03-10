@@ -16,13 +16,13 @@ def tvt_split(df, split=0.1):
     init_df_len = len(df)
 
     #Type handling and correction
-    if type(split) == float:
+    if type(split) == float: #If the provided split is a float, and is less than 0.5, we treat it as a percentage
         if split < 0.5:
             split_num = int(init_df_len * split)
         else:
             print('Error - Split provided was a float greater than or equal to 0.5. Setting split to default 0.1')
             split_num = int(init_df_len * 0.1)
-    elif type(split) == int:
+    elif type(split) == int: #If the provided split is an int, and is less than half of the initial dataframe, we use it as a constant number.
         if split < (init_df_len/2):
             split_num = split
         else:
@@ -30,7 +30,8 @@ def tvt_split(df, split=0.1):
             print('Setting split to default - 0.1')
             split_num = int(init_df_len * 0.1)
     else:
-        print(f'Error - Split provided was of an unacceptable type - {type(split)}. Split must either be a float between 0 and 0.5, or an int smaller than half of the length of the dataframe.')
+        print(f'Error - Split provided was of an unacceptable type - {type(split)}.\n '
+              f'Split must either be a float between 0 and 0.5, or an int smaller than half of the length of the dataframe.')
         print('Setting split to default - 0.1')
         split_num = int(init_df_len * 0.1)
     
@@ -46,8 +47,6 @@ def datetime_split(df, remove_old = False):
 
     remove_old - Removes original columns and leaves only the split version. Default False
     """
-    #Intelligently determine if any of the columns can be converted to datetime, including unix datetime.
-    #If so, convert it, split it, and optionally remove the old column.
     
     #Get all columns with datetime object types.
     collist = []
